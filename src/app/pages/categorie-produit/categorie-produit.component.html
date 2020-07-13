@@ -1,0 +1,70 @@
+
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header">
+          <h4 class=" card-title">Liste des Categories</h4>
+
+          <div ngbDropdown>
+            <form  class="form-inline waves-light" mdbWavesEffect>
+              <div class="md-form mt-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+              </div>
+              <button class=" btn btn-link" type="button"  ngbTooltip="Ajouter" container="body" (click)="addCategorie()" >
+                <i class=" tim-icons icon-simple-add"> </i>
+              </button>
+            </form>
+
+              <div
+                aria-labelledby="dropdownMenuLink"
+                class=" dropdown-menu-right"
+                ngbDropdownMenu
+              >
+
+              </div>
+
+            </div>
+        </div>
+        <div class=" card-body">
+          <div class=" table-responsive">
+            <table class=" table tablesorter" id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>Nom</th>
+                  <th>Code Categorie</th>
+                  <th>Edit</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr *ngFor="let item of listData | async" >
+                  <td class="hidden"> {{item.Id}} </td>
+                  <td>  {{item.code}} </td>
+                  <td> {{item.nom}} </td>
+                  <td>
+                    <div>
+                      <button class=" btn btn-link" type="button" ngbTooltip="Edit" container="body" (click)="updateData(item)" >
+                        <i class=" tim-icons icon-pencil"> </i>
+                      </button>
+                    </div>
+                  </td>
+                  <td class=" text-right">
+                    <div>
+                      <button class=" btn btn-link" type="button" container="body" (click)="removeData(item.Id)" ngbTooltip="Delete">
+                        <i class=" tim-icons icon-trash-simple"> </i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

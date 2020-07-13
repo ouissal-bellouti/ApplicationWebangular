@@ -1,0 +1,48 @@
+<div class="content">
+
+    <div class="col-md-6 offset-md-3 mt-5">
+        <div class="title">
+            APPLICATION DE GESTION <br> <br> <br>
+        </div>
+        <div class="card">
+            <h4 class="card-header"></h4>
+            <div class="card-body">
+                <form [formGroup]="loginForm" (ngSubmit)="Login()">
+                    <div class="form-group">
+                        <label for="Email">Email</label>
+                        <input id="Email" type="email" formControlName="Email" class="form-control" />
+                        <div class="text-danger"
+                        *ngIf="this.loginForm.get('Email').invalid && this.loginForm.get('Email').touched">
+                        {{messageValidate.email.required}}
+                    </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="UserName">Username</label>
+                      <input id="UserName" type="text" formControlName="UserName" class="form-control" />
+                      <div class="text-danger"
+                      *ngIf="this.loginForm.get('UserName').invalid && this.loginForm.get('UserName').touched">
+                      {{messageValidate.username.required}}
+                  </div>
+                  </div>
+                    <div class="form-group">
+                        <label for="Password">Password</label>
+                        <input id="Password" type="password" formControlName="Password" class="form-control"/>
+                        <div class="text-danger"
+                        *ngIf="this.loginForm.get('Password').invalid && this.loginForm.get('Password').touched">
+                        <div class="text-danger" *ngIf="this.loginForm.get('Password').errors.required">
+                            {{messageValidate.pass.required}}
+                        </div>
+                    </div>
+                    </div>
+
+                    <input id="RememberMe" type="checkbox" formControlName="RememberMe" class=""/>
+                    <label class="mr-3" for="RememberMe">Remember me</label>
+                    <div>
+                      <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+      </div>
+</div>

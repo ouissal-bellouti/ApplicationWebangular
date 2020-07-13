@@ -1,0 +1,75 @@
+
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header">
+          <h4 class=" card-title">Liste des clients</h4>
+
+          <div ngbDropdown>
+            <form  class="form-inline waves-light" mdbWavesEffect>
+              <div class="md-form mt-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+              </div>
+              <button class=" btn btn-link" type="button"  ngbTooltip="Ajouter" container="body" (click)="addClient()" >
+                <i class=" tim-icons icon-simple-add"> </i>
+              </button>
+            </form>
+
+              <div
+                aria-labelledby="dropdownMenuLink"
+                class=" dropdown-menu-right"
+                ngbDropdownMenu
+              >
+
+              </div>
+
+            </div>
+        </div>
+        <div class=" card-body">
+          <div class=" table-responsive">
+            <table class=" table tablesorter" id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>Id</th>
+                  <th>Nom</th>
+                  <th>Prenom</th>
+                  <th>Email</th>
+                  <th>telephone</th>
+                  <th>Adresse</th>
+                  <th>Ville</th>
+                  <th class=" text-center">Code Postal</th>
+                  <th class="text-center">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of listData | async" >
+                  <td> {{item.id}} </td>
+                  <td> {{item.nom}} </td>
+                  <td> {{item.prenom}} </td>
+                  <td> {{item.email}} </td>
+                  <td class="text-left"> {{item.telephone}} </td>
+                  <td> {{item.adresse}} </td>
+                  <td> {{item.ville}} </td>
+                  <td class="text-center"> {{item.codePostal}} </td>
+                  <td class=" text-right">
+                    <div>
+                      <button class=" btn btn-link" type="button" placement="left" ngbTooltip="Edit" container="body" (click)="updateData(item)">
+                        <i class=" tim-icons icon-pencil"> </i>
+                      </button>
+                      <button class=" btn btn-link"  placement="left" ngbTooltip="Delete" (click)="removeData(item.id)">
+                        <i class=" tim-icons icon-trash-simple"> </i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

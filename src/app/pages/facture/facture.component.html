@@ -1,0 +1,70 @@
+
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header">
+          <h4 class=" card-title">Liste Des Factures</h4>
+
+          <div ngbDropdown>
+            <form  class="form-inline waves-light" mdbWavesEffect>
+              <div class="md-form mt-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+              </div>
+              <button class=" btn btn-inline-dnger" type="button"  ngbTooltip="Ajouter" container="body" (click)="newFacture()" >
+                <i class=" tim-icons icon-simple-add"> </i>
+              </button>
+              <button class=" btn btn-inline-dnger" type="button"  ngbTooltip="PDF">
+                <i class=" tim-icons icon-cloud-download-93"> </i>
+              </button>
+            </form>
+
+              <div
+                aria-labelledby="dropdownMenuLink"
+                class=" dropdown-menu-right"
+                ngbDropdownMenu
+              >
+
+              </div>
+
+            </div>
+        </div>
+        <div class=" card-body">
+          <div class=" table-responsive">
+            <table class=" table tablesorter" id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>Date DE CREATION</th>
+                  <th>STATUT</th>
+                  <th>CLIENT</th>
+                  <th>DATE D'ECEHEANCE</th>
+                  <th>MONTANT</th>
+                  <th class="text-center">Actions</th>
+                </tr>
+              </thead>
+                <tbody>
+                    <tr *ngFor="let facture of factureList">
+                      <td scope="row"></td>
+                      <td> {{facture.DateCreation}} </td>
+                      <td> {{facture.Statut}} </td>
+                      <td> {{facture.DateEcehance}} </td>
+                      <td> {{facture.PrixTTC}} </td>
+                      <td>
+                        <div>
+                        <button class=" btn btn-link" type="button" placement="left" ngbTooltip="Edit" container="body" (click)="onSelect(facture)">
+                          <i class=" tim-icons icon-pencil"> </i>
+                        </button>
+                        <button class=" btn btn-link" placement="left" ngbTooltip="Delete" (click)="onDelete()">
+                          <i class=" tim-icons icon-trash-simple"> </i>
+                        </button>
+                      </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

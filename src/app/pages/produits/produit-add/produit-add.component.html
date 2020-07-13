@@ -1,0 +1,159 @@
+<div class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header"><h3 class="title">Ajouter un produit</h3>
+  <div class="example-loading-shade"
+       *ngIf="isLoadingResults">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+  </div>
+        <div class="button-row">
+          <a class="title" class="disabled" color="" [routerLink]="['/produits']"><button class="btn btn-danger btn-link">Liste</button></a> / Ajouter
+        </div>
+      </div>
+
+   <div class="card-body">
+     <form [formGroup] ="produitForm" (ngSubmit)="onFormsubmit()">
+        <div class="row">
+          <div class="col-md-4 pr-md-1">
+            <div class="form-group">
+              <label> Réference </label>
+              <input
+              class="form-control"
+              type="text"
+              formControlName="reference"
+              placeholder="Réference"
+              errorStateMatcher="matcher"
+              />
+              <mat-error>
+                <span *ngIf="!produitForm.get('reference').valid && produitForm.get('reference').touched">Ce champs est requis</span>
+              </mat-error>
+            </div>
+          </div>
+
+          <div class="col-md-4 pr-md-1">
+            <div class="form-group">
+              <label> Désignation </label>
+              <input
+              type="text"
+              class="form-control"
+              formControlName="designation"
+              placeholder="Désignation"
+              />
+              <mat-error>
+                <span *ngIf="!produitForm.get('designation').valid && produitForm.get('designation').touched">Ce champs est requis</span>
+              </mat-error>
+            </div>
+          </div>
+
+          <div class="col-md-4 pr-md-1">
+            <div class="form-group">
+              <label> Prix HT </label>
+              <input
+              type="number"
+              class="form-control"
+              formControlName="prix"
+              placeholder="DH"
+              />
+              <mat-error>
+                <span *ngIf="!produitForm.get('prix').valid && produitForm.get('prix').touched">Ce champs est requis</span>
+              </mat-error>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-4 pr-md-1">
+            <div class="form-group">
+              <label> TVA </label>
+              <input
+              class="form-control"
+              type="number"
+              formControlName="tva"
+              placeholder="DH"
+              />
+              <mat-error>
+                <span *ngIf="!produitForm.get('tva').valid && produitForm.get('tva').touched">Ce champs est requis</span>
+              </mat-error>
+            </div>
+          </div>
+
+          <div class="col-md-4 pr-md-1">
+            <div class="form-group">
+              <label for="exampleFormControlSelect2"> Unité </label>
+              <mat-select class="form-control" id="exampleForControlSelect1">
+                <mat-option *ngFor="let unite of unites"> {{unite.value}} </mat-option>
+              </mat-select>
+              <mat-error>
+                <span *ngIf="!produitForm.get('unites').valid && produitForm.get('unites').touched"></span>
+              </mat-error>
+            </div>
+          </div>
+
+          <div class="col-md-4 pr-md-1">
+            <div class="form-group">
+              <label for="exampleFormControlSelect2"> Categorie </label>
+              <mat-select class="form-control" id="exampleForControlSelect1">
+                <mat-option *ngFor="let categorie of categories"> {{categorie.value}} </mat-option>
+              </mat-select>
+              <mat-error>
+                <span *ngIf="!produitForm.get('categorie').valid && produitForm.get('categorie').touched"></span>
+              </mat-error>
+            </div>
+          </div>
+        </div>
+
+        <div class=" row">
+          <div class=" col-md-12">
+            <div class=" form-group">
+
+              <label> Description </label>
+              <textarea
+                class=" form-control"
+                formControlName="description"
+                cols="80"
+                rows="4"
+                type="text"
+                placeholder="Description du produit"
+              s></textarea
+              >
+              <mat-error>
+                <span *ngIf="!produitForm.get('description').valid && produitForm.get('description').touched">Ce champs est requis</span>
+              </mat-error>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="uploadError">
+          <div [innerHTML]="uploadError" class="error"></div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label> Images </label>
+              <div class="upload-image">
+                <div #image class="image-wrapper"></div>
+                <div class="browse-btn">
+                  <input class="form-control" type="file" name="cameraImg" id="cameraImg" (change)="onSelectedFile($event)" />
+                  <div class="browse-image">
+                    <img src="assets/images/camera.png" width="60px">
+                    <p>Browse Image</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="clearfix"></div>
+   <div class=" card-footer">
+    <button class=" btn btn-fill btn-danger" type="submit" [disabled]="!produitForm.valid" > Save </button>
+  </div>
+     </form>
+
+   </div>
+
+
+    </div>
+
+  </div>
+</div>

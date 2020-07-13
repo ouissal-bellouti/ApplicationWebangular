@@ -1,0 +1,115 @@
+<div class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header"><h3 class="title">Ajouter un Devis</h3>
+        <div class="button-row">
+          <a class="title" class="disabled" color="" routerLink="'/devis'"><button class="btn btn-danger btn-link">Liste</button></a> / Ajouter
+        </div>
+      </div>
+
+   <div class="card-body">
+     <form [formGroup] ="this.service.formData" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col-md-4 pr-md-1">
+            <div class="form-group">
+              <label> <strong> Ref Devis </strong> </label>
+              <input
+              class="form-control"
+              formControlName="Id"
+              value="028jdbcsdop552fdf5"
+              type="text"
+              readonly
+              />
+            </div>
+          </div>
+
+          <div class="col-md-4 pr-md-1">
+            <div class="form-group">
+              <label> Date Création </label>
+              <input
+              type="date"
+              class="form-control"
+              formControlName="dateLivaraison"
+              placeholder="DateLivraison"
+              />
+            </div>
+          </div>
+
+          <div class="col-md-4 pr-md-1">
+            <div class="form-group">
+              <label> Client </label>
+              <select
+              name="client"
+              class="form-control"
+              formControlName="client"
+              id="client"
+              >
+              <option value="0" style="color: black" [ngValue]="null">-Select-</option>
+              <option *ngFor="let item of ClientList" style="color: black" [ngValue]="item"> {{item.nom}} </option>
+              </select>
+            </div>
+          </div>
+          </div>
+
+          <table class="table table-borderless">
+            <thead>
+              <th> Designation </th>
+              <th> Quantité </th>
+              <th> Prix HT  </th>
+              <th> Totale HT  </th>
+              <th> TVA  </th>
+              <th> Totale TTC  </th>
+              <th>
+                <button type="button" class="btn btn-sm- btn-dark text-light" (click)="AddData(null,'A')">
+                <i class=" tim-icons icon-simple-add"> </i>
+
+              </button>
+            </th>
+            </thead>
+            <tbody>
+              <tr >
+                <td *ngIf="!!service.list || service.list.length == 0">
+                  Aucune Article sélectionnée...
+                </td>
+              </tr>
+              <tr *ngFor="let item of service.list; let i=index;">
+                <td> {{item.designation}} </td>
+                <td> {{item.quantite}} </td>
+                <td> {{item.prixHT}} </td>
+                <td> {{item.prixTTC}} </td>
+                <td> {{item.tva}} </td>
+                <td> {{item.prixTTC}} </td>
+                <td>
+                    <button class=" btn btn-link" type="button" placement="left" ngbTooltip="Edit" container="body" (click)="AddData(i,'M')">
+                      <i class=" tim-icons icon-pencil"> </i>
+                    </button>
+                    <button type="button" class=" btn btn-link" placement="left" ngbTooltip="Delete" (click)="onDelete(item, item.Id,i)">
+                      <i class=" tim-icons icon-trash-simple"> </i>
+                    </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="form-group row">
+              <div class="col-sm-4 mb-3 mb-sm-0">
+              <div class="form-group">
+              <label>Total TTC : </label>
+              <input type="text" class="form-control" id="prixTotal" formControlName="prixTotal" readonly>
+              </div>
+              </div>
+          </div>
+
+     <div class=" card-footer">
+    <button class=" btn btn-fill btn-danger" type="submit" >Save</button>
+       </div>
+     </form>
+
+   </div>
+
+
+    </div>
+
+  </div>
+</div>
+

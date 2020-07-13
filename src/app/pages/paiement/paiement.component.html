@@ -1,0 +1,118 @@
+
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header">
+          <h4 class=" card-title">Liste Des Paiements</h4>
+
+          <div ngbDropdown>
+            <form  class="form-inline waves-light" mdbWavesEffect>
+              <div class="md-form mt-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+              </div>
+              <button class=" btn btn-inline-dnger" type="button"  ngbTooltip="Ajouter" container="body" >
+                <i class=" tim-icons icon-simple-add"> </i>
+              </button>
+              <button class=" btn btn-inline-dnger" type="button"  ngbTooltip="PDF">
+                <i class=" tim-icons icon-cloud-download-93"> </i>
+              </button>
+            </form>
+
+              <div
+                aria-labelledby="dropdownMenuLink"
+                class=" dropdown-menu-right"
+                ngbDropdownMenu
+              >
+
+              </div>
+
+            </div>
+        </div>
+        <div class=" card-body">
+          <div class=" table-responsive">
+            <table class=" table tablesorter" id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>Reference</th>
+                  <th>PRIX TTC</th>
+                  <th>Statut</th>
+                  <th class="text-center">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr >
+                  <td> fac001</td>
+                  <td> 4890 Dh</td>
+                  <td> En cours </td>
+                  <td class="text-center">
+                    <div>
+                    <button class=" btn btn-link" type="button" placement="left" ngbTooltip="Edit" container="body" >
+                      <i class=" tim-icons icon-pencil"> </i>
+                    </button>
+                    <button class=" btn btn-link" placement="left" ngbTooltip="Delete" >
+                      <i class=" tim-icons icon-trash-simple"> </i>
+                    </button>
+                  </div>
+                  </td>
+                </tr>
+                <tr >
+
+                  <td> fac002 </td>
+                  <td> 10 500 Dh</td>
+                  <td> En retard </td>
+                  <td class="text-center">
+                    <div>
+                    <button class=" btn btn-link" type="button" placement="left" ngbTooltip="Edit" container="body" >
+                      <i class=" tim-icons icon-pencil"> </i>
+                    </button>
+                    <button class=" btn btn-link" placement="left" ngbTooltip="Delete" >
+                      <i class=" tim-icons icon-trash-simple"> </i>
+                    </button>
+                  </div>
+                  </td>
+                </tr>
+
+                <tr >
+
+                  <td> fac003 </td>
+                  <td> 4000 Dh</td>
+                  <td> Cloturé </td>
+                  <td class="text-center">
+                    <div>
+                    <button class=" btn btn-link" type="button" placement="left" ngbTooltip="Edit" container="body" >
+                      <i class=" tim-icons icon-pencil"> </i>
+                    </button>
+                    <button class=" btn btn-link" placement="left" ngbTooltip="Delete" >
+                      <i class=" tim-icons icon-trash-simple"> </i>
+                    </button>
+                  </div>
+                  </td>
+                </tr>
+
+                <tr >
+
+                  <td> fac004 </td>
+                  <td> 800 Dh</td>
+                  <td> Cloturé </td>
+                  <td class="text-center">
+                    <div>
+                    <button class=" btn btn-link" type="button" placement="left" ngbTooltip="Edit" container="body" >
+                      <i class=" tim-icons icon-pencil"> </i>
+                    </button>
+                    <button class=" btn btn-link" placement="left" ngbTooltip="Delete" >
+                      <i class=" tim-icons icon-trash-simple"> </i>
+                    </button>
+                  </div>
+                  </td>
+                </tr>
+
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
